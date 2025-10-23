@@ -12,6 +12,20 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  mongo:
+    image: mongo:7
+    container_name: mongo_db
+    ports:
+     - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:7
+    container_name: redis_cache
+    ports:
+      - "6379:6379"
+
   kafka:
     image: confluentinc/cp-kafka:latest
     ports:
@@ -33,15 +47,3 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
-
-  service-backbone:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-      - kafka
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/service_backbone
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
-      SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS: kafka:29092
