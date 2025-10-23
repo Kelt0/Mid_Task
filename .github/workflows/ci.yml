@@ -4,9 +4,9 @@ name: Java CI with Gradle
 # Триггеры для запуска: push в main или создание Pull Request в main
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:
