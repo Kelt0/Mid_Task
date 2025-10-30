@@ -5,7 +5,6 @@ import dto.LoginRequest;
 import dto.RegisterRequest;
 import entity.Role;
 import entity.User;
-import event.UserCreatedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
