@@ -21,11 +21,15 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.cloud:spring-cloud-starter-gateway:4.3.2")
+	implementation("org.springframework.cloud:spring-cloud-starter-gateway-server-webflux")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation(platform("io.jsonwebtoken:jjwt-bom:0.13.0"))
+	implementation("io.jsonwebtoken:jjwt-api:0.13.0")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.13.0")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.13.0")
 }
 dependencyManagement {
 	imports {

@@ -2,6 +2,7 @@ plugins {
     java
     id("org.springframework.boot") version "3.5.6"
     id("io.spring.dependency-management") version "1.1.7"
+    id("com.github.davidmc24.gradle.plugin.avro") version "1.9.1"
 }
 
 group = "org.example"
@@ -16,6 +17,7 @@ java {
 
 repositories {
     mavenCentral()
+    maven(url = "https://packages.confluent.io/maven")
 }
 
 dependencies {
@@ -35,6 +37,7 @@ dependencies {
     implementation("io.confluent:kafka-avro-serializer:7.5.0")
     implementation("jakarta.validation:jakarta.validation-api:3.1.1")
     implementation("org.apache.avro:avro:1.12.0")
+    implementation(platform("io.jsonwebtoken:jjwt-bom:0.13.0"))
 }
 
 tasks.withType<Test> {
