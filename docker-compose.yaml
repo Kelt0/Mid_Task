@@ -47,3 +47,9 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
+
+  schema-registry:
+    image: apicurio/apicurio-registry-mem:2.4.1.Final
+    container_name: schema_registry
+    ports:
+      - "8081:8080"

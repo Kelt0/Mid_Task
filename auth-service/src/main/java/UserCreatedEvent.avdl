@@ -1,0 +1,8 @@
+namespace Event;
+
+schema array<UserCreatedEvent>;
+
+record UserCreatedEvent {
+	string userId;
+	string email;
+}
