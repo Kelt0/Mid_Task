@@ -40,6 +40,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
-      # 5. Главный шаг: запускаем сборку и тесты
-      - name: Build with Gradle
-        run: ./gradlew build
+      # 5. Главный шаг: Запускаем все проверки (checkstyle, tests, coverage)
+      - name: Checkstyle
+        run: ./gradlew checkstyleMain checkstyleTest --no-daemon
+
+      - name: Unit tests
+        run: ./gradlew test --no-daemon
+
+      - name: Coverage
+        run: ./gradlew jacocoTestReport jacocoTestCoverageVerification --no-daemon

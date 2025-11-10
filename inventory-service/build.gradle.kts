@@ -8,11 +8,13 @@ group = "org.example"
 version = "0.0.1-SNAPSHOT"
 description = "inventory-service"
 
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }
 }
+
 
 repositories {
     mavenCentral()

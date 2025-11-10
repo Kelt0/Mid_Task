@@ -1,0 +1,11 @@
+namespace org.example.authservice.event;
+
+schema UserCreatedEvent;
+
+/** Событие: Пользователь создан */
+record UserCreatedEvent {
+	string userId;
+	string email;
+	string password;
+	array<string> roles;
+}
