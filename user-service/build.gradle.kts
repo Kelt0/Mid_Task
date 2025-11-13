@@ -1,3 +1,10 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        maven("https://packages.confluent.io/maven/")
+    }
+}
+
 plugins {
     java
     id("org.springframework.boot") version "3.5.6"
@@ -17,6 +24,7 @@ java {
 
 repositories {
     mavenCentral()
+    maven(url = "https://packages.confluent.io/maven")
 }
 
 dependencies {
@@ -34,6 +42,7 @@ dependencies {
     implementation("io.confluent:kafka-avro-serializer:7.9.0")
     testImplementation("io.confluent:kafka-schema-registry:7.9.0")
     implementation("org.apache.avro:avro:1.12.1")
+    implementation(project(":kafka-event-schema"))
 }
 
 tasks.withType<Test> {

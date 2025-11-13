@@ -1,7 +1,15 @@
 pluginManagement {
     repositories {
-        mavenCentral()
         gradlePluginPortal()
+        mavenCentral()
+        maven { url = uri("https://packages.confluent.io/maven/") }
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://packages.confluent.io/maven/") }
     }
 }
 
@@ -12,7 +20,9 @@ include(
     "inventory-service",
     "notification-service",
     "order-service",
-    "production-service",
-    "user-service"
+    "product-service",
+    "user-service",
+    "kafka-event-schema"
 )
-include("kafka-event-schema")
+
+project(":kafka-event-schema").projectDir = file("kafka-event-schema")

@@ -231,6 +231,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
     }
   }
 
+
   /**
    * RecordBuilder for UserCreatedEvent instances.
    */
