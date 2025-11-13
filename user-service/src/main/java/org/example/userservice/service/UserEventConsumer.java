@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 public class UserEventConsumer {
 
     private final UserRepository userRepository;
-    private  final RoleRepository roleRepository;
-    private final Logger logger = LoggerFactory.getLogger(UserEventConsumer.class);
+    private final RoleRepository roleRepository;
+    private static final Logger logger = LoggerFactory.getLogger(UserEventConsumer.class);
 
     public UserEventConsumer(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;

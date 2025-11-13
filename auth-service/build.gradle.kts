@@ -20,6 +20,11 @@ buildscript {
         toolchain {
             languageVersion = JavaLanguageVersion.of(17)
         }
+        sourceSets {
+            val main by getting {
+                java.srcDir("src/main/generated")
+            }
+        }
     }
 
 
@@ -45,29 +50,35 @@ buildscript {
         implementation("io.confluent:kafka-avro-serializer:7.9.0")
         testImplementation("io.confluent:kafka-schema-registry:7.9.0")
         implementation("jakarta.validation:jakarta.validation-api:3.1.1")
-        implementation("org.apache.avro:avro:1.12.0")
+        implementation("org.apache.avro:avro:1.12.1")
         implementation(platform("io.jsonwebtoken:jjwt-bom:0.13.0"))
     }
 
 // конвертация avdl в avsc
 tasks.register<Exec>("convertAvdlToAvsc") {
     commandLine(
-        "java", "-jar", "libs/avro-tools-1.11.1.jar",
+        "java", "-jar", "libs/avro-tools-1.12.1.jar",
         "idl2schemata", "src/main/avro/UserCreatedEvent.avdl",
         "src/main/resources/avro"
     )
 }
 
 // генерация java файлов на основе avsc
-tasks.register<JavaExec>("generateJavaFromAvsc") {
-    group = "avro"
-    description = "Generate Java classes from .avsc"
-    classpath = sourceSets.main.get().runtimeClasspath
-    mainClass.set("org.apache.avro.tool.Main")
-    args = listOf(
+tasks.register<Exec>("generateJavaFromAvsc") {
+//    group = "avro"
+//    description = "Generate Java classes from .avsc"
+//    classpath = sourceSets.main.get().runtimeClasspath
+//    mainClass.set("org.apache.avro.tool.Main")
+//    args = listOf(
+//        "compile", "schema",
+//        "src/main/resources/avro/UserCreatedEvent.avsc",
+//        "src/main/generated"
+//    )
+    commandLine(
+        "java", "-jar", "libs/avro-tools-1.12.1.jar",
         "compile", "schema",
         "src/main/resources/avro/UserCreatedEvent.avsc",
-        "src/main/java"
+        "src/main/generated"
     )
 }
 

@@ -1,8 +1,8 @@
 namespace org.example.authservice.event;
 
+// Optional: main schema (using it creates a .avsc equivalent file)
 schema UserCreatedEvent;
 
-/** Событие: Пользователь создан */
 record UserCreatedEvent {
 	string userId;
 	string email;

@@ -1,0 +1,11 @@
+namespace org.example.authservice.event;
+
+// Optional: main schema (using it creates a .avsc equivalent file)
+schema UserCreatedEvent;
+
+record UserCreatedEvent {
+	string userId;
+	string email;
+	string password;
+	array<string> roles;
+}

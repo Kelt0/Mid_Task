@@ -5,6 +5,7 @@ import org.example.authservice.dto.LoginRequest;
 import org.example.authservice.dto.RegisterRequest;
 import org.example.authservice.entity.Role;
 import org.example.authservice.entity.User;
+import org.example.authservice.event.UserCreatedEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

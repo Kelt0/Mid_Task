@@ -15,3 +15,4 @@ include(
     "production-service",
     "user-service"
 )
+include("kafka-event-schema")
