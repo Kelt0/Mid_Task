@@ -1,1 +1,1 @@
-rootProject.name = "kafka-event-schema"
+rootProject.name = "Middle_Task"

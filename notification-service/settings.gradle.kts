@@ -1,1 +1,1 @@
-rootProject.name = "notification-service"
+rootProject.name = "Middle_Task"

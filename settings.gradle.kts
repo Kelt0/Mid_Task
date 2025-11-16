@@ -25,4 +25,3 @@ include(
     "kafka-event-schema"
 )
 
-project(":kafka-event-schema").projectDir = file("kafka-event-schema")

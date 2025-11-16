@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package org.example.authservice.event;
+package org.example.authuserservice.event;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.util.Utf8;
@@ -201,8 +201,8 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Creates a new UserCreatedEvent RecordBuilder.
    * @return A new UserCreatedEvent RecordBuilder
    */
-  public static org.example.authservice.event.UserCreatedEvent.Builder newBuilder() {
-    return new org.example.authservice.event.UserCreatedEvent.Builder();
+  public static UserCreatedEvent.Builder newBuilder() {
+    return new UserCreatedEvent.Builder();
   }
 
   /**
@@ -210,11 +210,11 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param other The existing builder to copy.
    * @return A new UserCreatedEvent RecordBuilder
    */
-  public static org.example.authservice.event.UserCreatedEvent.Builder newBuilder(org.example.authservice.event.UserCreatedEvent.Builder other) {
+  public static UserCreatedEvent.Builder newBuilder(UserCreatedEvent.Builder other) {
     if (other == null) {
-      return new org.example.authservice.event.UserCreatedEvent.Builder();
+      return new UserCreatedEvent.Builder();
     } else {
-      return new org.example.authservice.event.UserCreatedEvent.Builder(other);
+      return new UserCreatedEvent.Builder(other);
     }
   }
 
@@ -223,11 +223,11 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param other The existing instance to copy.
    * @return A new UserCreatedEvent RecordBuilder
    */
-  public static org.example.authservice.event.UserCreatedEvent.Builder newBuilder(org.example.authservice.event.UserCreatedEvent other) {
+  public static UserCreatedEvent.Builder newBuilder(UserCreatedEvent other) {
     if (other == null) {
-      return new org.example.authservice.event.UserCreatedEvent.Builder();
+      return new UserCreatedEvent.Builder();
     } else {
-      return new org.example.authservice.event.UserCreatedEvent.Builder(other);
+      return new UserCreatedEvent.Builder(other);
     }
   }
 
@@ -253,7 +253,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(org.example.authservice.event.UserCreatedEvent.Builder other) {
+    private Builder(UserCreatedEvent.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.userId)) {
         this.userId = data().deepCopy(fields()[0].schema(), other.userId);
@@ -277,7 +277,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
      * Creates a Builder by copying an existing UserCreatedEvent instance
      * @param other The existing instance to copy.
      */
-    private Builder(org.example.authservice.event.UserCreatedEvent other) {
+    private Builder(UserCreatedEvent other) {
       super(SCHEMA$, MODEL$);
       if (isValidValue(fields()[0], other.userId)) {
         this.userId = data().deepCopy(fields()[0].schema(), other.userId);
@@ -311,7 +311,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder setUserId(java.lang.CharSequence value) {
+    public UserCreatedEvent.Builder setUserId(java.lang.CharSequence value) {
       validate(fields()[0], value);
       this.userId = value;
       fieldSetFlags()[0] = true;
@@ -331,7 +331,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'userId' field.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder clearUserId() {
+    public UserCreatedEvent.Builder clearUserId() {
       userId = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -351,7 +351,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'email'.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder setEmail(java.lang.CharSequence value) {
+    public UserCreatedEvent.Builder setEmail(java.lang.CharSequence value) {
       validate(fields()[1], value);
       this.email = value;
       fieldSetFlags()[1] = true;
@@ -371,7 +371,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'email' field.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder clearEmail() {
+    public UserCreatedEvent.Builder clearEmail() {
       email = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -391,7 +391,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'password'.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder setPassword(java.lang.CharSequence value) {
+    public UserCreatedEvent.Builder setPassword(java.lang.CharSequence value) {
       validate(fields()[2], value);
       this.password = value;
       fieldSetFlags()[2] = true;
@@ -411,7 +411,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'password' field.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder clearPassword() {
+    public UserCreatedEvent.Builder clearPassword() {
       password = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -431,7 +431,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'roles'.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder setRoles(java.util.List<java.lang.CharSequence> value) {
+    public UserCreatedEvent.Builder setRoles(java.util.List<java.lang.CharSequence> value) {
       validate(fields()[3], value);
       this.roles = value;
       fieldSetFlags()[3] = true;
@@ -451,7 +451,7 @@ public class UserCreatedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Clears the value of the 'roles' field.
       * @return This builder.
       */
-    public org.example.authservice.event.UserCreatedEvent.Builder clearRoles() {
+    public UserCreatedEvent.Builder clearRoles() {
       roles = null;
       fieldSetFlags()[3] = false;
       return this;

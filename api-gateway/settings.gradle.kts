@@ -1,1 +1,1 @@
-rootProject.name = "api-gateway"
+rootProject.name = "Middle_Task"
