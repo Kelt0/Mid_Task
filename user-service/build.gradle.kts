@@ -39,6 +39,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.apache.avro:avro:1.12.1")
     implementation(project(":kafka-event-schema"))
+    implementation("org.liquibase:liquibase-core:5.0.1")
 }
 
 tasks.withType<Test> {

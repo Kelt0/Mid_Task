@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 06-insert-oauth2-client
+      author: your_name
+      changes:
+        - insert:
+            tableName: oauth2_registered_client
+            columns:
+              # Уникальный ID записи
+              - column: {name: id, value: 'auth-service-client'}
+              # CLIENT ID, который вы будете использовать в запросе
+              - column: {name: client_id, value: 'articles-client'}
+              # Секрет клиента. Используем {noop} для незашифрованного секрета 'secret'
+              # (для разработки)
+              - column: {name: client_secret, value: '{noop}secret'}
+              - column: {name: client_id_issued_at, valueComputed: 'CURRENT_TIMESTAMP'}
+              - column: {name: client_name, value: 'Articles Resource Client'}
+              # Метод аутентификации: Basic Auth
+              - column: {name: client_authentication_methods, value: 'client_secret_basic'}
+              # Тип гранта: client_credentials
+              - column: {name: authorization_grant_types, value: 'client_credentials'}
+              # Запрашиваемая область
+              - column: {name: scopes, value: 'articles.read'}
+              # Настройки клиента (стандартные для SAS)
+              - column: {name: client_settings, value: '{"settings.client.require-proof-key":false,"settings.client.require-authorization-consent":false}'}
+              # Настройки токена (время жизни и формат)
+              - column: {name: token_settings, value: '{"settings.token.access-token-format":"self-contained","settings.token.client-authentication-method":"client_secret_basic","settings.token.id-token-signature-algorithm":["RS256"],"settings.token.reuse-refresh-tokens":true,"settings.token.access-token-time-to-live":["PT5M"],"settings.token.refresh-token-time-to-live":["PT10M"]}'}

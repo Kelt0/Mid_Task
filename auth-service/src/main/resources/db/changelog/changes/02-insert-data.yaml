@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-insert-data
+      author: your_name
+      changes:
+        # 1. ВСТАВКА РОЛЕЙ
+        - insert:
+            tableName: roles
+            columns:
+              - column: {name: id, value: 1}
+              - column: {name: name, value: USER}
+        - insert:
+            tableName: roles
+            columns:
+              - column: {name: id, value: 2}
+              - column: {name: name, value: ADMIN}
+        - insert:
+            tableName: roles
+            columns:
+              - column: { name: id, value: 3 }
+              - column: { name: name, value: MANAGER }
+
+        # 2. ВСТАВКА ПОЛЬЗОВАТЕЛЕЙ
+        - insert:
+            tableName: users
+            columns:
+              - column: {name: id, value: 1}
+              - column: {name: username, value: admin}
+              - column: {name: password, value: $2a$10$...} # Используйте закодированный пароль
+              - column: {name: email, value: admin@example.com}
+
+        # 3. ВСТАВКА СВЯЗЕЙ (ПОСЛЕДНИМ ДЕЛОМ)
+        - insert:
+            tableName: user_roles
+            columns:
+              - column: {name: user_id, value: 1}
+              - column: {name: role_id, value: 2}

@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-insert-user-data
+      author: your_name
+      changes:
+        # Добавляем роли
+        - insert:
+            tableName: app_roles
+            columns:
+              - column: { name: name, value: "ROLE_USER" }
+              - column: { name: name, value: "ROLE_ADMIN" }
+              - column: { name: name, value: "ROLE_MANAGER" }
+
+
+        # Добавляем тестового админа
+        - insert:
+            tableName: app_users
+            columns:
+              - column: { name: email, value: "admin@example.com" }
+
+        # Связываем админа с ролью ROLE_ADMIN (id=2)
+        - insert:
+            tableName: app_user_roles
+            columns:
+              - column: { name: user_id, valueNumeric: 1 }
+              - column: { name: role_id, valueNumeric: 2 }

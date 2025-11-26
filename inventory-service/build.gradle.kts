@@ -30,6 +30,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.liquibase:liquibase-core:5.0.1")
 }
 
 tasks.withType<Test> {

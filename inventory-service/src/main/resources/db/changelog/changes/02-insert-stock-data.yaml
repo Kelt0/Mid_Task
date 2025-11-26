@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: 02-insert-stock-data
+      author: your_name
+      changes:
+        # Товар 1: 100 штук на складе, 0 в резерве
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: product_id, value: "product-123" }
+              - column: { name: quantity, valueNumeric: 100 }
+              - column: { name: reserved, valueNumeric: 0 }
+
+        # Товар 2: 50 штук на складе, 5 уже зарезервировано
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: product_id, value: "product-456" }
+              - column: { name: quantity, valueNumeric: 50 }
+              - column: { name: reserved, valueNumeric: 5 }
+
+        # Товар 3: Айфон, 10 штук
+        - insert:
+            tableName: stock
+            columns:
+              - column: { name: product_id, value: "iphone-15" }
+              - column: { name: quantity, valueNumeric: 10 }
+              - column: { name: reserved, valueNumeric: 0 }

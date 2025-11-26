@@ -29,6 +29,7 @@
         implementation("org.springframework.boot:spring-boot-starter")
         implementation("org.springframework.boot:spring-boot-starter-security")
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+        implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
         testImplementation("org.springframework.boot:spring-boot-starter-test")
         testImplementation("org.springframework.security:spring-security-test")
         runtimeOnly("org.postgresql:postgresql")
@@ -43,6 +44,7 @@
         implementation("org.apache.avro:avro:1.12.1")
         implementation(platform("io.jsonwebtoken:jjwt-bom:0.13.0"))
         implementation(project(":kafka-event-schema"))
+        implementation("org.liquibase:liquibase-core:5.0.1")
     }
 
 
